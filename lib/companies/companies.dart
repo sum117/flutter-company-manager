@@ -9,6 +9,7 @@ import 'package:companymanager/shared/bottom_nav_bar.dart';
 import 'package:companymanager/shared/loading.dart';
 import 'package:companymanager/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CompaniesScreen extends StatelessWidget {
   const CompaniesScreen({super.key});
@@ -31,7 +32,7 @@ class CompaniesScreen extends StatelessWidget {
                   backgroundColor: Colors.green,
                   actions: [
                     IconButton(
-                      icon: const Icon(Icons.add),
+                      icon: const Icon(FontAwesomeIcons.plus),
                       onPressed: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(

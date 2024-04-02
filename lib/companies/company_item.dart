@@ -7,6 +7,7 @@ import 'package:companymanager/services/models.dart';
 import 'package:companymanager/shared/loading.dart';
 import 'package:companymanager/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../licenses/license_list.dart';
 
@@ -83,7 +84,7 @@ class CompanyDetailsScreen extends StatelessWidget {
               backgroundColor: Colors.transparent,
               actions: [
                 IconButton(
-                  icon: const Icon(Icons.edit),
+                  icon: const Icon(FontAwesomeIcons.penToSquare),
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
@@ -94,7 +95,7 @@ class CompanyDetailsScreen extends StatelessWidget {
                   },
                 ),
                 IconButton(
-                  icon: const Icon(Icons.delete),
+                  icon: const Icon(FontAwesomeIcons.trash),
                   onPressed: () {
                     showDialog(
                       context: context,
@@ -171,7 +172,7 @@ class CompanyDetailsScreen extends StatelessWidget {
                       ),
                     ),
                     IconButton(
-                      icon: const Icon(Icons.add),
+                      icon: const Icon(FontAwesomeIcons.plus),
                       onPressed: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(

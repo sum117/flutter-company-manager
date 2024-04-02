@@ -22,7 +22,7 @@ class LicenseItem extends StatelessWidget {
         backgroundColor: Colors.transparent,
         actions: [
           IconButton(
-            icon: const Icon(Icons.edit),
+            icon: const Icon(FontAwesomeIcons.penToSquare),
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
@@ -33,7 +33,7 @@ class LicenseItem extends StatelessWidget {
             },
           ),
           IconButton(
-            icon: const Icon(Icons.delete),
+            icon: const Icon(FontAwesomeIcons.trash),
             onPressed: () {
               showDialog(
                 context: context,
