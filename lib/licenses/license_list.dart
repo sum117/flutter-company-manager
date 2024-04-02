@@ -23,6 +23,8 @@ class LicenseList extends StatelessWidget {
             var licenses = snapshot.data!;
             return Column(
               children: licenses
+                  //only licenses that contain company id
+                  .where((license) => license.company == company.id)
                   .map((license) =>
                       LicenseCard(license: license, company: company))
                   .toList(),
