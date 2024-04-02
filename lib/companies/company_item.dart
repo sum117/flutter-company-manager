@@ -107,16 +107,16 @@ class CompanyDetailsScreen extends StatelessWidget {
                           actions: [
                             TextButton(
                               onPressed: () {
-                                FirestoreService()
-                                    .deleteCompany(updatedCompany.id);
-                                Navigator.of(context).pushNamedAndRemoveUntil(
-                                    AppRoutePath.home, (route) => false);
+                                Navigator.of(context).pop();
                               },
                               child: const Text('Cancel'),
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.of(context).pop();
+                                FirestoreService()
+                                    .deleteCompany(updatedCompany.id);
+                                Navigator.of(context).pushNamedAndRemoveUntil(
+                                    AppRoutePath.home, (route) => false);
                               },
                               style: TextButton.styleFrom(
                                 backgroundColor: Colors.red,
