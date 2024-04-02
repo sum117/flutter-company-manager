@@ -1,3 +1,4 @@
+import 'package:companymanager/data.dart';
 import 'package:companymanager/licenses/license_item.dart';
 import 'package:companymanager/services/firestore.dart';
 import 'package:companymanager/services/models.dart';
@@ -11,23 +12,25 @@ class LicenseList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<License>>(
-      future: FirestoreService().getLicenses(company.licenses),
-      builder: (context, snapshot) {
-        if (snapshot.hasError) {
-          return const Icon(FontAwesomeIcons.triangleExclamation);
-        } else if (snapshot.hasData) {
-          List<License> licenses = snapshot.data!;
-          return Column(
+    return StreamBuilder(
+        stream: FirestoreService().listenToLicenses(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return const Center(child: Text(FeedbackMessage.genericError));
+          } else if (snapshot.hasData) {
+            var licenses = snapshot.data!;
+            return Column(
               children: licenses
                   .map((license) =>
                       LicenseCard(license: license, company: company))
-                  .toList());
-        } else {
-          return Container();
-        }
-      },
-    );
+                  .toList(),
+            );
+          } else {
+            return const Center(child: Text(FeedbackMessage.genericError));
+          }
+        });
   }
 }
 

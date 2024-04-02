@@ -85,6 +85,15 @@ class FirestoreService {
     }
   }
 
+  Stream<List<License>> listenToLicenses() {
+    return _db
+        .collection(FirestoreCollections.licenses)
+        .snapshots()
+        .map((snapshot) {
+      return snapshot.docs.map((doc) => License.fromJson(doc.data())).toList();
+    });
+  }
+
   Future<List<License>> getLicenses([List<String>? licenseIds]) async {
     QuerySnapshot<Map<String, dynamic>> snapshot;
     if (licenseIds != null) {
