@@ -15,9 +15,9 @@ class AppRoutePath {
 class AppRouteLabel {
   static const home = 'Home';
   static const login = 'Login';
-  static const about = 'About';
-  static const profile = 'Profile';
-  static const companies = 'Companies';
+  static const about = 'Sobre';
+  static const profile = 'Perfil';
+  static const companies = 'Empresas';
 }
 
 var appRoutes = {
